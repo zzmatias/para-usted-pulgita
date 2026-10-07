@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un pequeño detalle para usted :3</title>
+ <link rel="icon" href="CORAZON.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            color: white;
+
+            background:
+                radial-gradient(circle at 20% 10%, rgba(255, 190, 220, 0.15), transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(180, 170, 255, 0.12), transparent 30%),
+                linear-gradient(135deg, #090714, #170d23, #08070f);
+
+            overflow-x: hidden;
+        }
+
+        /* ESTRELLAS */
+        .estrellas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1.5px),
+                radial-gradient(circle, rgba(255,220,240,.5) 1px, transparent 1.5px);
+
+            background-size: 95px 95px, 150px 150px;
+            background-position: 10px 20px, 60px 80px;
+
+            opacity: .35;
+
+            animation: moverEstrellas 20s linear infinite;
+        }
+
+        @keyframes moverEstrellas {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-95px);
+            }
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            width: min(900px, 92%);
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 0;
+        }
+
+        /* PORTADA */
+        .portada {
+            text-align: center;
+        }
+
+        .pequeno {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: #e9cfe1;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: .95;
+            font-weight: 500;
+
+            text-shadow:
+                0 0 15px rgba(255, 190, 225, .3),
+                0 0 35px rgba(255, 190, 225, .15);
+        }
+
+        .subtitulo {
+            max-width: 650px;
+            margin: 30px auto;
+
+            color: #d8cfdb;
+
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .boton {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 50px;
+
+            color: white;
+            text-decoration: none;
+
+            background: rgba(255,255,255,.07);
+
+            transition: .3s;
+        }
+
+        .boton:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,.14);
+        }
+
+        /* FOTO */
+        .tarjeta {
+            width: 100%;
+            padding: 18px;
+
+            border-radius: 28px;
+
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.15);
+
+            box-shadow: 0 20px 70px rgba(0,0,0,.4);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .foto {
+            width: 100%;
+            display: block;
+
+            max-height: 750px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            box-shadow: 0 15px 45px rgba(0,0,0,.5);
+        }
+
+        .texto-foto {
+            text-align: center;
+
+            color: #e5dce7;
+
+            line-height: 1.8;
+
+            margin: 25px auto 5px;
+
+            max-width: 650px;
+        }
+
+        /* VERSÍCULO */
+        .versiculo {
+            text-align: center;
+            max-width: 720px;
+        }
+
+        .comilla {
+            font-size: 5rem;
+            color: #e7b8d5;
+
+            line-height: .4;
+        }
+
+        .versiculo p {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+
+            line-height: 1.7;
+
+            margin: 30px 0;
+        }
+
+        .referencia {
+            color: #d8c4d4;
+
+            letter-spacing: 2px;
+
+            font-size: .9rem;
+        }
+
+        /* MENSAJE */
+        .mensaje {
+            text-align: center;
+
+            max-width: 700px;
+        }
+
+        .mensaje h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+
+            font-weight: 500;
+
+            margin-bottom: 25px;
+        }
+
+        .mensaje p {
+            color: #ded5df;
+
+            font-size: 1.12rem;
+
+            line-height: 2;
+        }
+
+        /* FINAL */
+        .final {
+            text-align: center;
+
+            min-height: 80vh;
+        }
+
+        .final h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+
+            font-weight: 500;
+
+            margin-bottom: 25px;
+        }
+
+        .final p {
+            color: #ddd1dd;
+
+            line-height: 1.9;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+        .corazon {
+            display: inline-block;
+
+            font-size: 2rem;
+
+            animation: latido 1.8s infinite;
+        }
+
+        @keyframes latido {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            color: #8f8290;
+
+            font-size: .8rem;
+        }
+
+        /* CELULAR */
+        @media (max-width: 600px) {
+
+            section {
+                min-height: auto;
+                padding: 90px 0;
+            }
+
+            .tarjeta {
+                padding: 10px;
+                border-radius: 22px;
+            }
+
+            .foto {
+                border-radius: 17px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="estrellas"></div>
+
+
+    <main class="contenedor">
+
+
+        <!-- PORTADA -->
+
+        <section class="portada">
+
+            <div>
+
+                <div class="pequeno">
+                    ♡ Un detalle hecho con cariño ♡
+                </div>
+
+                <h1>
+                    Un pequeño<br>
+                    detalle para usted
+                </h1>
+
+                <p class="subtitulo">
+                    Hay cosas que no necesitan ser apresuradas.
+                    A veces lo más bonito es disfrutar el momento
+                </p>
+
+                <a href="#foto" class="boton">
+                    Ver el detalle ↓
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOTO -->
+
+        <section id="foto">
+
+            <div class="tarjeta">
+
+                <!-- AQUÍ APARECERÁ TU FOTO -->
+
+                <img
+                    src="pipas.jpeg"
+                    alt="Un momento especial"
+                    class="foto"
+                >
+
+                <p class="texto-foto">
+                    Un momento bonito, una foto para guardar
+                    y un recuerdo que aprecio :3
+                    <span class="corazon">♡</span>
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- VERSÍCULO -->
+
+        <section>
+
+            <div class="versiculo">
+
+                <p>
+                    Encomienda al Señor tus obras,
+                    y tus pensamientos serán afirmados.
+                
+                </p>  
+                <div class="referencia">
+                    PROVERBIOS 16:3
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MENSAJE -->
+
+        <section>
+
+            <div class="mensaje">
+
+                <div class="pequeno">
+                    🙏 Primero Dios
+                </div>
+
+                <h2>
+                    Sin prisas, sin forzar nada.
+                </h2>
+
+                <p>
+                    Me gusta la idea de disfrutar cada momento,
+                    seguir conociéndonos, compartir 
+                    y dejar que todo suceda a su tiempo y Dios siempre nos guie
+                    aunque lleguen a pasar muchas cosas en nuestras vidas 
+                    quiero siempre que vayamos en buen camino, y cada vez aprender y siempre
+                    buscar el reino de Dios y lo demás será por añadidura, quiero
+                    y si Dios permite cada vez conocerle a usted , también en vida personal
+                    hay que tener y bueno crecer en fe , todo lleva proceso , también valores y humildad , hay que crecer cada vez más de manera
+                    adecuada y se que no somos perfectos pero estamos para seguir avanzando por
+                    eso nuestro Padre nos brinda cada dia más de vida y disfrutar de la vida, valorar
+                    los momentos, familiares , el tiempo, cada parte de esta vida que Dios nos dio, y 
+                    sonreirle a la vida porque entiendo que es difícil pero no nos hace menos llegarnos
+                    a sentir mal , ya hablo en vida personal , unos consejos que me gusta brindar, bueno 
+                    sigo , entonces sonreirle a esta vida , tener buenos recuerdos , que nos llegemos a sentir
+                    mal no nos hace menos , ni llorar , ni fracasar, el fracaso es parte de el buen camino al éxito, si nos caemos pues levantarnos aunque lleguemos a pensar que no podemo , pero si se puede,de mi
+                     parte le deseo lo mejor en su camino como profesional en lo que es Agropecuaria, y en su vida, y tambien a sus seres queridos
+                     Dios siempre va a estar con usted y con todas las personas de este mundo , somos pecadores incluso más cosas malas que hacemos
+                    pero Dios siempre esta con nosotros, siempre nos perdona y nos acepta y nos da muchas oportunidades en nuestras vidas , ese el más grande y verdadero Amor , y único  el de nuestro Padre , entonces a vivir la vida , seguir para adelante, hacer lo que nos gusta obvio algo adecuado , y trabajar
+                    y disfrutar el proceso. Dios la bendiga siempre y a todos ♡.
+                </p>
+
+                <br>
+
+                <p>
+                    No quiero apresurar nada.
+                    Quiero simplemente disfrutar esta etapa,
+                    conocerte cada vez más y valorar cada momento
+                    que podamos compartir.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FINAL -->
+
+        <section class="final">
+
+            <div>
+
+                <div class="pequeno">
+                     Para recordar
+                </div>
+
+                <h2>
+                    Que Dios vaya por delante.
+                </h2>
+
+                <p>
+                    Porque cuando ponemos a Dios en el centro,
+                    podemos caminar con calma, valorar lo que tenemos
+                    y confiar en lo que venga.
+                </p>
+
+                <br>
+
+                <p>
+                    Si Dios permite que nuestros caminos
+                    sigan juntos, quiero disfrutar cada momento,
+                    sin apresurar nada y con mucho cariño.
+                </p>
+
+                <br>
+
+                <div style="font-size: 2rem;">
+                    🤍  🙏
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>🤍
+    </footer>
+
+
+</body>
+</html>
